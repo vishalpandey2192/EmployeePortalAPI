@@ -62,3 +62,6 @@ DELETE http://localhost:3000/api/employees/:id
 - delete the record corresponding to the id parameter
 
 
+## 
+Solution with running instructions in `/boilerplate`
+
