@@ -5,18 +5,22 @@
 
 ## Running Instructions
 1. Run `npm install`
-2. Run `npm start`. The system weill run on `localhost:3000`
-3. To get all the employees information, try:
+2. Run `npm start`. The system will run on `localhost:3000`
+
+## APIs
+
+
+### To get all the employees information, try:
  ```bash
  curl -i -X GET http://localhost:3000/api/employees/
 ```
 
-4. To get an the employees information, try:
+### To get an the employees information, try:
  ```bash
  curl -i -X GET http://localhost:3000/api/employees/1
 ```
 
-5. To create a new entry, try: 
+### To create a new entry, try: 
 ```bash
 curl -i -X POST \
     -H "Content-Type: application/json" \
@@ -28,7 +32,7 @@ This will create a new employee with a random id and will also append two quotes
 {"message":"The employee #4 has been created","content":{"id":4,"fname":"Vishal","lname":"Pandey","hireDate":"2019-10-11","role":"CEO","quote":"The government is a greedy piglet that suckles on a taxpayer's teat until they have sore, chapped nipples.","joke":"What happens to a frog's car when it breaks down? It gets toad."}}
 ```
 
-6. To update an entry, try:
+### To update an entry, try:
 ```bash
 curl -i -X PUT \
     -H "Content-Type: application/json" \
@@ -36,7 +40,7 @@ curl -i -X PUT \
     http://localhost:3000/api/employees/4
 ```
     
-7. To delete an entry, try:
+### To delete an entry, try:
 ```
 curl -i -X DELETE http://localhost:3000/api/employees/3
 ```
