@@ -24,7 +24,7 @@
 ```bash
 curl -i -X POST \
     -H "Content-Type: application/json" \
-    -d '{ "fname": "Vishal", "lname": "Pandey", "hireDate": "2019-10-11", "role": "CEO" }' \
+    -d '{ "fname": "New", "lname": "Name", "hireDate": "2019-10-11", "role": "CEO" }' \
     http://localhost:3000/api/employees
 ```
 This will create a new employee with a random id and will also append two quotes. This is the response:

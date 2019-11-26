@@ -48,6 +48,9 @@ router.post('/', helper.validateFields, async (req, res) => {
         .catch(err => res.status(500).json({ message: err.message }))
 })
 
+
+// router.put('/:id', async (req, res) {}
+
 router.put('/:id', helper.isInteger, helper.validateFields, async (req, res) => {
     const id = req.params.id
 

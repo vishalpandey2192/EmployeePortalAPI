@@ -1,4 +1,5 @@
 const fs = require('fs')
+let employees = require('../data/input.json')
 
 const getId = (array) => {
     if (array.length > 0) {
@@ -7,6 +8,7 @@ const getId = (array) => {
         return 1
     }
 }
+
 
 function findInArray(array, id) {
     return new Promise((resolve, reject) => {
@@ -49,9 +51,27 @@ function validateFields(req, res, next) {
         res.status(400).json({ message: 'Date must be in past' })
     }
     // check role
-    if(accept_role.indexOf(role.toUpperCase()) == -1){
-        res.status(400).json({ message: 'Role must be ceo/manager/cp/lackey' })
+    if(role){
+        if(accept_role.indexOf(role.toUpperCase()) == -1){
+            res.status(400).json({ message: 'Role must be ceo/manager/cp/lackey' })
+        }
+
+        // only 1 CEO allowed
+       // Only do this check if its a post
+    //    req.
+        if (role.toUpperCase() == "CEO"){
+            // check if CEO already exists
+            const index = employees.findIndex(p => p.role == "CEO")
+            console.log("index", index)
+            if(index != -1 && employees[index].id != req.params.id){
+                // a CEO already exists
+                res.status(400).json({ message: 'CEO already exixts' })
+            }
+        }
+    }else{
+        res.status(400).json({ message: 'Role is a required field' })
     }
+    
     if (fname && lname && hireDate && role) {
         next()
     } else {
